@@ -80,6 +80,7 @@ metadata/
 In order to get the data visit ScanNetpp[https://kaldir.vc.in.tum.de/scannetpp/documentation]. All the files of the matadata are available from the original repo we added our setup in the ```dataset folder```. Make sure you convert the images in the right format in order to train the gaussian splatting models. 
 
 ### ScanNet
+```
 root/
 ├── train/
 ├──── scene1/
@@ -109,7 +110,6 @@ root/
 ├── id2color.yaml/
 ├── id2label.yaml/
 ├── labelids.txt/
-
 ```
 
 ## Run Method
