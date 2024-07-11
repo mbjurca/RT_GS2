@@ -1,0 +1,41 @@
+NAME: ''
+
+TASK: 'semantic'
+
+MODEL:
+  SEMANTIC_HEAD: 'conv'
+
+TRAIN:
+  BATCH_SIZE: 4
+  OUTPUT_DIR: "/media/mihnea/0C722848722838BA/Replica2"
+  SAVE_PREDICTIONS: true
+  PICK_MODEL: "best"
+  LR: 0.0001
+  WARMUP_EPOCHS: 0
+  EPOCHS: 100
+  GRAD_CLIP_NORM: 1.0
+  IMG_SIZE: [640, 480] # w, h
+  GPU: 1
+  FINETUNE: false
+  MODEL_PATH: "/media/mihnea/0C722848722838BA/Replica2/experiments/generalized_only_no_labelsmooth_ceco/model_weights/best_model_epoch_12_miou_0.4590.pth"
+  SCENE_TO_FINETUNE: '/media/mihnea/0C722848722838BA/Replica2/office_3'
+  LOSS: 'custom'
+  COMPUTE_SEMANTIC_WEIGHTS: false
+
+DATA:
+  IGNORE_INDEX: -1
+
+DATASET:
+  NAME: 'replica'
+  SCENE_LIST_TRAIN: ['/media/mihnea/0C722848722838BA/Replica2/office_0',
+    '/media/mihnea/0C722848722838BA/Replica2/office_1', 
+    '/media/mihnea/0C722848722838BA/Replica2/office_2', 
+    '/media/mihnea/0C722848722838BA/Replica2/office_4',
+    '/media/mihnea/0C722848722838BA/Replica2/room_0',
+    '/media/mihnea/0C722848722838BA/Replica2/room_1']
+  SCENE_LIST_TEST: ['/media/mihnea/0C722848722838BA/Replica2/room_2']
+  PAIR_DIR_TRAIN: '/media/mihnea/0C722848722838BA/Replica2/contrastive_data_train'
+  PAIR_DIR_TEST: '/media/mihnea/0C722848722838BA/Replica2/contrastive_data_test'
+  ID2NAME: '/media/mihnea/0C722848722838BA/Replica2/id2name.yaml'
+  COLOR_MAPPING: '/media/mihnea/0C722848722838BA/Replica2/color_mapping_remaped.yaml'
+  CLASS_WEIGHTS: '/media/mihnea/0C722848722838BA/Replica2/class_weights.json'

@@ -1,0 +1,3 @@
+BACKBONE:
+    USE_XYZ: "true"
+    NUM_FEATURES: 10

@@ -1,0 +1,12 @@
+TRAIN:
+  OUTPUT_DIR: "/media/mihnea/0C722848722838BA/Replica2"
+  SAVE_PREDICTIONS: true
+  PICK_MODEL: "best"
+  LR: 0.0001
+  EPOCHS: 100
+  GRAD_CLIP_NORM: 1.0
+  IMG_SIZE: [640, 480] # w, h
+  GPU: 1
+  FINETUNE: false
+  MODEL_PATH: "/media/mihnea/0C722848722838BA/Replica2/experiments/generalized_semantic_normalzation_255_aug_lr_0001_label_smooth_15_46_classes/model_weights/best_model_epoch_32_miou_0.3689.pth"
+  SCENE_TO_FINETUNE: '/media/mihnea/0C722848722838BA/Replica2/office_3'

@@ -1,0 +1,23 @@
+NAME: 'point_contrast_scannet'
+
+TRAIN:
+  OUTPUT_DIR: "/media/mihnea/0C722848722838BA/ScanNet"
+  SAVE_PREDICTIONS: true
+  LR: 0.001
+  WARMUP_EPOCHS: 0
+  EPOCHS: 100
+  GRAD_CLIP_NORM: 1.0
+  GPU: 1
+
+DATA:
+  IGNORE_INDEX: -1
+
+DATASET:
+  NAME: 'scannet'
+  ROOT_DIR: '/media/mihnea/0C722848722838BA/ScanNet'
+  SCENE_LIST_TRAIN: ['8b2c0938d6', 'PUTNAMESSCENESHERE']
+
+  SCENE_LIST_TEST: []
+
+  PAIR_DIR_TRAIN: '/media/mihnea/0C722848722838BA/ScanNet/train_contrastive'
+  PAIR_DIR_TEST: '/media/mihnea/0C722848722838BA/ScanNet/test_contrastive'

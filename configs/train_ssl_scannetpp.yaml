@@ -1,0 +1,26 @@
+NAME: ''
+
+TRAIN:
+  OUTPUT_DIR: "/media/mihnea/0C722848722838BA/ScanNet++2"
+  SAVE_PREDICTIONS: true
+  LR: 0.001
+  WARMUP_EPOCHS: 0
+  EPOCHS: 100
+  GRAD_CLIP_NORM: 1.0
+  GPU: 1
+
+DATA:
+  IGNORE_INDEX: -1
+
+DATASET:
+  NAME: 'scannetpp'
+  ROOT_DIR: '/media/mihnea/0C722848722838BA/ScanNet++2/final_split'
+  SCENE_LIST_TRAIN: ['8b2c0938d6', '076c822ecc', '07f5b601ee', '08bbbdcc3d', '09bced689e', '1ae9e5d2a6', '210f741378', '260db9cf5a', '2b1dc6d6a5', '302a7f6b67',
+                     '30f4a2b44d', '3928249b53', '480ddaadc0', '4a1a3a7dc5', '56a0ec536c', '5a269ba6fe', '67d702f2e8', '689fec23d7', '712dc47104', '824d9cfa6e', 
+                     '8d563fc2cc', '8e00ac7f59', '9471b8d485', '94ee15e8ba', 'a08dda47a8', 'a1d9da703c', 'aaa11940d3', 'ad2d07fd11', 'c06a983e63', 'c0c863b72d', 
+                     'ccfd3ed9c7', 'd2f44bf242', 'd6702c681d', 'dc263dfbf0', 'e1b1d9de55', 'e898c76c1f', 'f07340dfea', 'f25f5e6f63', 'f8f12e4e6b', 'fd361ab85f']
+
+  SCENE_LIST_TEST: ['1366d5ae89', '1a130d092a', '1a8e0d78c0', '281bc17764', '28a9ee4557', '2a496183e1', '39f36da05b', '4ba22fa7e4', '6d89a7320d', 'acd69a1746']
+
+  PAIR_DIR_TRAIN: '/media/mihnea/0C722848722838BA/ScanNet++2/final_split/train_contrastive'
+  PAIR_DIR_TEST: '/media/mihnea/0C722848722838BA/ScanNet++2/final_split/test_contrastive'
