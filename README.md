@@ -8,11 +8,18 @@ This repository contains the official implementation of [RT-GS2](https://arxiv.o
 
 ## Installation
 
-Instructions for installation will be provided here.
+In order to create a working enviroment we provided a enviroment.yaml file
+
+'''
+conda create -f enviroment.yaml
+conda activate rtgs2
+'''
+
+The enviroment also has to have the dependences of the [Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting) model that we included. Mainly the diff-reserazier and knn packages to be build. Also addition some dependances for [AsymFormer](https://github.com/Fourier7754/AsymFormer), [PointTransformerV3](https://github.com/Pointcept/PointTransformerV3) might be needed. 
 
 ## Data
 
-Our experiments were conducted on three different datasets: Replica (TEXTTEXTTEXT: CAN YOU ADD THE LINK TO THE REPO THAT YOU USED?), [ScanNet](http://www.scan-net.org/), and [ScanNet++](https://kaldir.vc.in.tum.de/scannetpp/documentation). The data can be downloaded using the aforementioned links.
+Our experiments were conducted on three different datasets: [Replica](https://github.com/facebookresearch/Replica-Dataset) replica processed dataset can be also found from the following link from Semantic-Nerf implementation [Replica Data](https://www.dropbox.com/scl/fo/puh6djua6ewgs0afsswmz/AGudMbll0n0v_iADmqrrRds?rlkey=ep5495umv628y2sk8hvnh8msc&e=1&dl=0), [ScanNet](http://www.scan-net.org/), and [ScanNet++](https://kaldir.vc.in.tum.de/scannetpp/documentation). The data can be downloaded using the aforementioned links.
 
 The directories for each dataset have to be organized in the following way:
 
@@ -120,7 +127,7 @@ All the metadata files are available from the original repo we added our setup i
 
 ### Train Gaussian Splatting models
 
-The first step of our pipeline involves the training of the gaussian models. This is done using the instructions in the original [Gaussian Splatting repository](https://github.com/graphdeco-inria/gaussian-splatting), for each scene seperately. Each dataset has to be transformed in order to accomodate the requirements of the model. The resulting gaussian models have to be stored in (TEXTTEXTTEXT: can you indicate where the trained models have to be stored).
+The first step of our pipeline involves the training of the gaussian models. This is done using the instructions in the original [Gaussian Splatting repository](https://github.com/graphdeco-inria/gaussian-splatting), for each scene seperately. Each dataset has to be transformed in order to accomodate the requirements of the model. The resulting gaussian models have to be stored with respect to the mentioned exemplified organizations structure.
 
 ### Train View-independent 3D Gaussian feature learning (Self-Supervised Constrastive Learning)
 
@@ -144,7 +151,11 @@ The first step of our pipeline involves the training of the gaussian models. Thi
 
 ## Inference
 
-TEXTTEXTTEXT: Can you indicate how the inference of the model should be done?.
+After training both model one can run the inference to obtain the real-time performance of the full model by running:
+
+```
+python infer_GGS.py --scene path/to/gaussian_scene/ --ssl_model_path path/to/point_cloud_model --semantic_model_path path/to/semantic_model
+```
 
 ## Citation
 If you find this work useful in your research, please cite:
