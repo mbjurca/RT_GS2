@@ -8,20 +8,22 @@ This repository contains the official implementation of [RT-GS2](https://arxiv.o
 
 ## Installation
 
-In order to create a working enviroment we provided a enviroment.yaml file
+In order to create a working enviroment we provided an enviroment.yaml file
 
-'''
+```
 conda create -f enviroment.yaml
 conda activate rtgs2
-'''
+```
 
-The enviroment also has to have the dependences of the [Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting) model that we included. Mainly the diff-reserazier and knn packages to be build. Also addition some dependances for [AsymFormer](https://github.com/Fourier7754/AsymFormer), [PointTransformerV3](https://github.com/Pointcept/PointTransformerV3) might be needed. 
+The enviroment also has to have the dependences of the [Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting) model that we included. Mainly the diff-gaussian-rasterization and simple-knn packages need to be build. Also addition some dependances for [AsymFormer](https://github.com/Fourier7754/AsymFormer), [PointTransformerV3](https://github.com/Pointcept/PointTransformerV3) might be needed. For information on how to install those, we refer to those repositories.
 
 ## Data
 
-Our experiments were conducted on three different datasets: [Replica](https://github.com/facebookresearch/Replica-Dataset) replica processed dataset can be also found from the following link from Semantic-Nerf implementation [Replica Data](https://www.dropbox.com/scl/fo/puh6djua6ewgs0afsswmz/AGudMbll0n0v_iADmqrrRds?rlkey=ep5495umv628y2sk8hvnh8msc&e=1&dl=0), [ScanNet](http://www.scan-net.org/), and [ScanNet++](https://kaldir.vc.in.tum.de/scannetpp/documentation). The data can be downloaded using the aforementioned links.
+Our experiments were conducted on three different datasets: [Replica](https://github.com/facebookresearch/Replica-Dataset) (an already processed version of the Replica dataset can also be found [here](https://www.dropbox.com/scl/fo/puh6djua6ewgs0afsswmz/AGudMbll0n0v_iADmqrrRds?rlkey=ep5495umv628y2sk8hvnh8msc&e=1&dl=0) ), [ScanNet](http://www.scan-net.org/), and [ScanNet++](https://kaldir.vc.in.tum.de/scannetpp/documentation). The data can be downloaded using the aforementioned links. We have also added some additional metadata for each dataset in `configs/dataset`.
 
-The directories for each dataset have to be organized in the following way:
+Make sure you follow the Gaussian Splatting preprocessing to make sure the the images are in the right format to train the gaussian splatting models.
+
+The directories for each dataset have to be organized in the following way (please make sure that also the included metadata is correctly organized as indicated below):
 
 ### Replica
 
@@ -50,6 +52,7 @@ root/
 ├── id2name.yaml
 ```
 
+- `root/`: The location of the data root directory. Make sure this corresponds with the hard-coded data path in the config files.
 - `images/`: Contains the original sparse images of the scenes.
 - `render/`: Contains the synthesized views of the scene.
 - `semantic/`: Contains the semantic masks for each view.
@@ -85,9 +88,9 @@ root/
 │    └── cfg_args
 ├──── .....
 ├── metadata/
-├── id2color.yaml/
-├── id2label.yaml/
-├── labelids.txt/
+├──── id2color.yaml/
+├──── id2label.yaml/
+├──── labelids.txt/
 ```
 
 ### ScanNet++
@@ -118,10 +121,9 @@ final_split/
 │    └── cfg_args
 ├──── .....
 metadata/
-├── scannetpp_id2color.yaml/
-├── scannetpp_id2label.yaml/
+├──── scannetpp_id2color.yaml/
+├──── scannetpp_id2label.yaml/
 ```
-All the metadata files are available from the original repo we added our setup in the ```dataset folder```. Make sure you convert the images in the right format in order to train the gaussian splatting models. 
 
 ## Train RT-GS2
 
@@ -151,7 +153,7 @@ The first step of our pipeline involves the training of the gaussian models. Thi
 
 ## Inference
 
-After training both model one can run the inference to obtain the real-time performance of the full model by running:
+After training both models, one can run the inference to obtain the real-time performance of the full model by running:
 
 ```
 python infer_GGS.py --scene path/to/gaussian_scene/ --ssl_model_path path/to/point_cloud_model --semantic_model_path path/to/semantic_model
