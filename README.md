@@ -4,7 +4,7 @@ This repository contains the official implementation of [RT-GS2](https://arxiv.o
 
 [[ArXiv]](https://arxiv.org/abs/2405.18033) [[Project Page]](https://mbjurca.github.io/rt-gs2/)
 
-![overview](https://github.com/mbjurca/RT_GS2/blob/main/arch_image/arch_overview_v2.png)
+![overview](https://github.com/mbjurca/RT_GS2/blob/main/arch_image/arch_overview.png)
 
 ## Installation
 
