@@ -4,19 +4,20 @@ This repository contains the official implementation of [RT-GS2](https://arxiv.o
 
 [[ArXiv]](https://arxiv.org/abs/2405.18033) [[Project Page]](https://mbjurca.github.io/rt-gs2/)
 
+![overview](https://github.com/mbjurca/RT_GS2/blob/main/arch_image/arch_overview.png)
+
 ## Installation
 
 Instructions for installation will be provided here.
 
 ## Data
 
-Our experiments were conducted on three different datasets: Replica (CAN YOU ADD THE LINK TO THE REPO THAT YOU USED?), [ScanNet](http://www.scan-net.org/), and [ScanNet++](https://kaldir.vc.in.tum.de/scannetpp/documentation). Please download the data from their respective repositories. 
+Our experiments were conducted on three different datasets: Replica (CAN YOU ADD THE LINK TO THE REPO THAT YOU USED?), [ScanNet](http://www.scan-net.org/), and [ScanNet++](https://kaldir.vc.in.tum.de/scannetpp/documentation). The data can be downloaded using the aforementioned links.
 
 The directories for each dataset have to be organized in the following way:
 
 ### Replica
 
-The directory structure should be organized as follows:
 ```
 root/
 ├── scene1/
@@ -119,7 +120,7 @@ All the metadata files are available from the original repo we added our setup i
 
 ### Train Gaussian Splatting models
 
-The first step of our pipeline involves the training the gaussian models seperately. This is done using the instructions in the original [Gaussian Splatting repository](https://github.com/graphdeco-inria/gaussian-splatting). Each dataset has to be transformed in order to accomodate the requirements of the model. The resulting gaussian models have to be stored TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT.
+The first step of our pipeline involves the training of the gaussian models. This is done using the instructions in the original [Gaussian Splatting repository](https://github.com/graphdeco-inria/gaussian-splatting), for each scene seperately. Each dataset has to be transformed in order to accomodate the requirements of the model. The resulting gaussian models have to be stored TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT.
 
 ### Train View-independent 3D Gaussian feature learning (Self-Supervised Constrastive Learning)
 
