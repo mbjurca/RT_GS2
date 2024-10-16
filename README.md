@@ -11,7 +11,7 @@ This repository contains the official implementation of [RT-GS2](https://arxiv.o
 In order to create a working enviroment we provided an enviroment.yaml file
 
 ```
-conda create -f enviroment.yaml
+conda env create -f enviroment.yaml
 conda activate rtgs2
 ```
 
